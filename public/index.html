@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>CommonShense · SessionStack</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="shell">
+    <aside class="sidebar">
+      <a class="brand" href="/" aria-label="CommonShense home"><span class="brand-mark" aria-hidden="true">c<span>s</span></span><span>CommonShense<small>Share your Agentic AI sessions</small></span></a>
+      <div class="nav-label">YOUR WORKSPACE</div>
+      <button class="nav-item selected" id="workspace-nav"><span aria-hidden="true">▧</span> SessionStack <span class="tiny-tag">LAB</span></button>
+      <button class="nav-item" id="sources-nav"><span aria-hidden="true">▤</span> Source library <span id="source-count" class="nav-count">5</span></button>
+      <button class="nav-item" id="references-nav"><span aria-hidden="true">◈</span> Reference sets</button>
+      <div class="history-label"><span class="nav-label">RUN HISTORY</span><span id="run-count" class="muted">0</span></div>
+      <div id="history" class="history"></div>
+      <div class="sidebar-bottom"><span class="local-dot"></span><div>Local workspace<small>Stored on this device</small></div><a id="export-link" href="#" class="icon-button" aria-label="Export workspace">↓</a></div>
+    </aside>
+    <main class="main">
+      <header class="topbar"><div><span class="muted">Workspace</span><span class="slash">/</span><span>SessionStack architecture</span></div><span id="connection" class="connection">Connecting</span></header>
+      <nav class="mobile-nav" aria-label="Workspace tools"><button id="mobile-sources" class="text-button">Sources</button><button id="mobile-references" class="text-button">Reference sets</button><button id="mobile-history" class="text-button">Run history</button></nav>
+      <div class="workspace">
+        <div class="intro"><div><div class="eyebrow">INDEPENDENT CONTEXTS. SHARED INTENT.</div><h1>More perspectives.<br><span>One shared direction.</span></h1></div><div class="intro-note">A stack of sessions, each with room to think.<br>Bring their evidence together here.</div></div>
+        <section class="goal-card" aria-label="Shared task contract"><div class="goal-heading"><span class="eyebrow">SHARED GOAL</span><button class="text-button" id="edit-goal">Edit goal ↗</button></div><p id="goal-text"></p><p class="constraints" id="constraints-text"></p></section>
+        <div class="controlbar">
+          <div class="controls-left"><label class="control-label">Execution<select id="mode"><option value="demo">Offline demo</option><option value="openai">Live · OpenAI</option></select></label><label class="control-label">Context strategy<select id="condition"><option value="stack">C · SessionStack</option><option value="overlap">B · Overlapping</option><option value="single">A · Single session</option></select></label><label class="control-label">Sessions<select id="lane-count"><option value="2">2 sessions</option><option value="3">3 sessions</option><option value="4">4 sessions</option></select></label></div>
+          <div class="controls-right"><button id="settings" class="secondary">Budgets</button><button id="cancel" class="secondary danger" hidden>Cancel run</button><button id="resume" class="secondary" hidden>Resume</button><button id="run" class="primary">Run SessionStack <span aria-hidden="true">↗</span></button></div>
+        </div>
+        <div class="run-caption"><span id="mode-note">Offline demo uses deterministic source extracts. No model calls.</span><span id="run-status">Ready to explore</span></div>
+        <div id="error" class="error" role="alert" hidden></div>
+        <div id="notice" class="notice" role="status" hidden></div>
+        <div class="phase-line" aria-label="Run progress"><span data-stage="explore"><b>01</b> Explore independently</span><i></i><span data-stage="review"><b>02</b> Exchange &amp; challenge</span><i></i><span data-stage="synthesis"><b>03</b> Bring it together</span></div>
+        <section class="stack" aria-label="SessionStack workspace">
+          <aside id="left-lane" class="lane lane-left"></aside>
+          <section class="result-panel" aria-label="Shared result">
+            <div class="result-header"><div><span class="eyebrow">THE COMMON GROUND</span><h2>Shared result</h2></div><span id="result-status" class="status-pill">Ready</span></div>
+            <div class="tabs" role="tablist" aria-label="Shared result views"><button id="tab-result" role="tab" aria-selected="true" aria-controls="result-content" data-tab="result">Result</button><button id="tab-evidence" role="tab" aria-selected="false" aria-controls="result-content" data-tab="evidence">Evidence</button><button id="tab-changes" role="tab" aria-selected="false" aria-controls="result-content" data-tab="changes">Changes</button><button id="tab-metrics" role="tab" aria-selected="false" aria-controls="result-content" data-tab="metrics">Metrics</button></div>
+            <div id="result-content" class="result-content" role="tabpanel" aria-labelledby="tab-result"></div>
+            <div class="result-footer"><span id="result-footer-note">One goal · versioned evidence</span><button class="text-button" id="save-checkpoint" disabled>Save checkpoint ↗</button></div>
+          </section>
+          <aside id="right-lane" class="lane lane-right"></aside>
+        </section>
+        <div id="extra-lanes" class="extra-lanes"></div>
+        <section class="discussion"><div class="section-title"><div><span class="eyebrow">SHARED BOARD</span><h2>The conversation between sessions</h2></div><span id="message-count" class="muted">0 contributions</span></div><div id="messages"></div></section>
+        <footer class="workspace-footer"><span>Powered by SessionStack</span><span>Aggregate working capacity · individual model limits still apply</span></footer>
+      </div>
+    </main>
+  </div>
+  <dialog id="dialog"><div class="dialog-heading"><h2 id="dialog-title"></h2><button id="close-dialog" class="icon-button" aria-label="Close dialog">×</button></div><div id="dialog-content"></div></dialog>
+  <script type="module" src="/app.js"></script>
+</body>
+</html>

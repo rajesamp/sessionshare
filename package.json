@@ -1,0 +1,14 @@
+{
+  "name": "commonshense",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "SessionStack: independent AI contexts, one shared goal",
+  "engines": { "node": ">=24.0.0" },
+  "scripts": {
+    "start": "node --env-file-if-exists=.env server.mjs",
+    "test": "node --test test/*.test.mjs",
+    "check": "node scripts/check.mjs",
+    "evaluate": "node --env-file-if-exists=.env scripts/evaluate.mjs"
+  }
+}
